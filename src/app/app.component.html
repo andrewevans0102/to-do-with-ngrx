@@ -1,0 +1,24 @@
+<header class="c-header">
+  <h1 class="c-header__title">To-Do list with NgRx</h1>
+  <p class="c-header__subtitle">Learn how to use NgRx with a to-do list</p>
+</header>
+<form class="c-form" [formGroup]="toDoForm" (ngSubmit)="onSubmit()">
+  <input
+    class="c-form__input"
+    type="text"
+    formControlName="name"
+    placeholder="to-do item"
+    required
+  />
+  <button class="c-form__button" type="submit" [disabled]="!toDoForm.valid">
+    Create Item
+  </button>
+</form>
+<section class="c-list">
+  <ul *ngFor="let item of items">
+    <li class="c-list__item">
+      <button class="c-list__button" (click)="deleteItem(item)">X</button>
+      <span class="c-list__item-label">{{ item.name }}</span>
+    </li>
+  </ul>
+</section>

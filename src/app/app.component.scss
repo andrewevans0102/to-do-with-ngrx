@@ -1,0 +1,75 @@
+.c-header {
+  text-align: center;
+  background-color: blue;
+  padding: 25px;
+}
+
+.c-header__title {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+  color: pink;
+}
+
+.c-header__subtitle {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  color: lightblue;
+  font-size: 25px;
+}
+
+.c-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.c-form__input {
+  font-size: 25px;
+  text-align: center;
+  margin: 10px;
+}
+
+.c-form__button {
+  font-size: 25px;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  width: 400px;
+  background-color: pink;
+  color: blue;
+  font-family: 'Oswald', sans-serif;
+}
+
+.c-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.c-list__item {
+  display: flex;
+  background-color: lightblue;
+  padding: 10px;
+  width: 500px;
+  border-radius: 50px;
+}
+
+.c-list__button {
+  background-color: red;
+  color: white;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.c-list__item-label {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-left: 25px;
+}
