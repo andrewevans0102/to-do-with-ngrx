@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Item } from './models/item';
-import { ToDoService } from './services/to-do.service';
 import { Store, select } from '@ngrx/store';
 import { getItems, addItem, deleteItem } from './ToDoActions';
 import { Observable } from 'rxjs';
-import { selectItems, selectError } from './ToDoReducer';
+import { selectItems, selectError } from './ToDoReducers';
 
 @Component({
   selector: 'app-root',

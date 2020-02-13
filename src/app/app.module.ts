@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
-import { ToDoEffect } from './ToDoEffect';
+import { ToDoEffect } from './ToDoEffects';
 import { StoreModule } from '@ngrx/store';
-import { ToDoReducer } from './ToDoReducer';
+import { ToDoReducer } from './ToDoReducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment'; // Angular CLI environment
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
