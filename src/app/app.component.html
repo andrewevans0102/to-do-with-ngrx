@@ -2,6 +2,9 @@
   <h1 class="c-header__title">To-Do list with NgRx</h1>
   <p class="c-header__subtitle">Learn how to use NgRx with a to-do list</p>
 </header>
+<section class="c-error" *ngIf="error$ | async as error">
+  <h1>{{ error }}</h1>
+</section>
 <form class="c-form" [formGroup]="toDoForm" (ngSubmit)="onSubmit()">
   <input
     class="c-form__input"
@@ -14,7 +17,7 @@
     Create Item
   </button>
 </form>
-<section class="c-list">
+<section class="c-list" *ngIf="items$ | async as items">
   <ul *ngFor="let item of items">
     <li class="c-list__item">
       <button class="c-list__button" (click)="deleteItem(item)">X</button>

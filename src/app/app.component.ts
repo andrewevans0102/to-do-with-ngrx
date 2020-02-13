@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Item } from './models/item';
 import { ToDoService } from './services/to-do.service';
+import { Store, select } from '@ngrx/store';
+import { getItems, addItem, deleteItem } from './ToDoActions';
+import { Observable } from 'rxjs';
+import { selectItems, selectError } from './ToDoReducer';
 
 @Component({
   selector: 'app-root',
@@ -12,24 +16,21 @@ export class AppComponent {
   toDoForm = new FormGroup({
     name: new FormControl('')
   });
-  items: Item[] = [];
+  items$: Observable<any>;
+  error$: Observable<any>;
 
-  constructor(private toDoService: ToDoService) {
-    this.items = this.toDoService.getItems();
+  constructor(private store: Store<{ toDo: { items: Item[] } }>) {
+    this.store.dispatch(getItems());
+    this.items$ = this.store.pipe(select(selectItems));
+    this.error$ = this.store.pipe(select(selectError));
   }
 
   onSubmit() {
-    this.toDoService.addItem(this.toDoForm.controls.name.value);
-    this.items = this.toDoService.getItems();
+    this.store.dispatch(addItem({ name: this.toDoForm.controls.name.value }));
     this.toDoForm.controls.name.reset();
   }
 
-  addItem(name: string) {
-    this.toDoService.addItem(name);
-  }
-
-  deleteItem(item: Item) {
-    this.toDoService.deleteItem(item);
-    this.items = this.toDoService.getItems();
+  deleteItem(deleted: Item) {
+    this.store.dispatch(deleteItem({ item: deleted }));
   }
 }
